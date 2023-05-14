@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Name | Ecommerce Website</title>
+  </head>
+  <body>
+    <main>
+      <div class="gridContainer">
+        <div class="product-description">
+          <h1 class="title">BALLON TIRO CLUB</h1>
+          <p class="price">12,75 €</p>
+          <p>Blanc / Noir</p>
+          <div>
+            <h2>Tailles</h2>
+            <button
+              class="sizeTiroClub"
+              (click)="onButtonClicked('3')"
+              [class.selectedButton]="selectedButton === '3'"
+            >
+              3
+            </button>
+            <button
+              class="sizeTiroClub"
+              (click)="onButtonClicked('4')"
+              [class.selectedButton]="selectedButton === '4'"
+            >
+              4
+            </button>
+            <button
+              class="sizeTiroClub"
+              (click)="onButtonClicked('5')"
+              [class.selectedButton]="selectedButton === '5'"
+            >
+              5
+            </button>
+          </div>
+          <button class="addtocartButton">Ajouter au panier</button>
+        </div>
+        <div class="product-features">
+          <div class="image-container">
+            <img [src]="currentImage" alt="My Image" />
+            <div class="button-container">
+              <button class="scroll-left" (click)="scrollLeft()">
+                &#8592;
+              </button>
+              <button class="scroll-right" (click)="scrollRight()">
+                &#8594;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="customer-reviews">
+        <button class="test" (click)="toggleParagraphs()" (click)="toggleIcon()">
+          <div class="button-content">
+            <div class="leftside">
+              <p class="button-label">Avis (22)</p>
+            </div>
+            <div class="rightside">
+              <p class="button-label">4.9</p>
+              <span class="material-symbols-outlined"> grade </span>
+              <span class="material-symbols-outlined"> grade </span>
+              <span class="material-symbols-outlined"> grade </span>
+              <span class="material-symbols-outlined"> grade </span>
+              <span class="material-symbols-outlined"> grade </span>
+              <span class="expand material-symbols-outlined" [ngClass]="{'rotated': isRotated}"> expand_more </span>
+            </div>
+          </div>
+        </button>
+        <p *ngIf="showParagraph1">Paragraph 1</p>
+        <p *ngIf="showParagraph2">Paragraph 2</p>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+        <div class="social-media-icons">
+          <a href="#"><img src="facebook-icon.png" alt="Facebook Icon" /></a>
+          <a href="#"><img src="twitter-icon.png" alt="Twitter Icon" /></a>
+          <a href="#"><img src="instagram-icon.png" alt="Instagram Icon" /></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
