@@ -52,7 +52,11 @@
         </div>
       </div>
       <div class="customer-reviews">
-        <button class="test" (click)="toggleParagraphs()" (click)="toggleIcon()">
+        <button
+          class="test"
+          (click)="toggleParagraphs()"
+          (click)="toggleIcon()"
+        >
           <div class="button-content">
             <div class="leftside">
               <p class="button-label">Avis (22)</p>
@@ -64,7 +68,10 @@
               <span class="material-symbols-outlined"> grade </span>
               <span class="material-symbols-outlined"> grade </span>
               <span class="material-symbols-outlined"> grade </span>
-              <span class="expand material-symbols-outlined" [ngClass]="{'rotated': isRotated}"> expand_more </span>
+              <span
+              >
+                expand_more
+              </span>
             </div>
           </div>
         </button>
@@ -74,15 +81,20 @@
     </main>
     <footer>
       <div class="footer-container">
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
         <div class="social-media-icons">
-          <a href="#"><img src="facebook-icon.png" alt="Facebook Icon" /></a>
-          <a href="#"><img src="twitter-icon.png" alt="Twitter Icon" /></a>
-          <a href="#"><img src="instagram-icon.png" alt="Instagram Icon" /></a>
+          <a href="#" class="footertext">Pourquoi ce site?</a>
+          <a href="#" class="footertext">Me contacter</a>
+          <a href="https://www.linkedin.com/in/youssef-drif-67927a239/" target="_blank"><img
+              class="iconlinkedin"
+              src="../../assets/images/linkedin-icon.png"
+              alt="Linkedin Icon"
+          /></a>
+          <a href="https://github.com/youssefdrif" target="_blank">
+            <img
+              class="icongithub"
+              src="../../assets/images/github-icon.png"
+              alt="Github Icon"
+          /></a>
         </div>
       </div>
     </footer>

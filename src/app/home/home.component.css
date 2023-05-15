@@ -194,3 +194,24 @@ footer {
 .rotated {
   transform: rotate(180deg);
 }
+
+.iconlinkedin, .icongithub{
+  width: 32px;
+  margin: 8px;
+  margin-bottom: 0;
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.footertext{
+  margin: 8px;
+}
+
+.footer-container{
+  background-color: rgb(231, 231, 231);
+}
