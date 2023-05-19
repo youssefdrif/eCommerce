@@ -215,3 +215,39 @@ footer {
 .footer-container{
   background-color: rgb(231, 231, 231);
 }
+
+.blue-button{
+  width: 100px;
+  height: 100px;
+  border: 0;
+}
+
+.imgbluebutton{
+  width: 100px;
+  height: 100px;
+  border: solid 2px rgb(87, 86, 86);
+  cursor: pointer;
+}
+.imgbluebutton:hover{
+  border: solid 2px rgb(29, 114, 184);
+}
+
+.imgState{
+  display: flex;
+  margin-top: 4px;
+}
+.imgMargin{
+  margin-right: 4px;
+}
+
+#blue:hover{
+  content: url('../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Bleu_02.jpg');
+}
+
+#rose:hover{
+  content: url('../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Rose_02.jpg');
+}
+
+#vert:hover{
+  content: url('../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Vert_02.jpg');
+}

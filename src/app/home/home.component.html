@@ -49,6 +49,38 @@
               </button>
             </div>
           </div>
+          <div class="imgState">
+            <div class="imgMargin">
+              <button class="blue-button">
+                <img
+                  id="blue"
+                  class="imgbluebutton"
+                  src="../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Bleu_01.jpg"
+                  alt="buttonpng"
+                />
+              </button>
+            </div>
+            <div class="imgMargin">
+              <button class="blue-button">
+                <img
+                  id="rose"
+                  class="imgbluebutton"
+                  src="../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Rose_01.jpg"
+                  alt="buttonpng"
+                />
+              </button>
+            </div>
+            <div class="imgMargin">
+              <button class="blue-button">
+                <img
+                  id="vert"
+                  class="imgbluebutton"
+                  src="../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Vert_01.jpg"
+                  alt="buttonpng"
+                />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="customer-reviews">
@@ -69,6 +101,8 @@
               <span class="material-symbols-outlined"> grade </span>
               <span class="material-symbols-outlined"> grade </span>
               <span
+                class="expand material-symbols-outlined"
+                [ngClass]="{ rotated: isRotated }"
               >
                 expand_more
               </span>
@@ -84,7 +118,10 @@
         <div class="social-media-icons">
           <a href="#" class="footertext">Pourquoi ce site?</a>
           <a href="#" class="footertext">Me contacter</a>
-          <a href="https://www.linkedin.com/in/youssef-drif-67927a239/" target="_blank"><img
+          <a
+            href="https://www.linkedin.com/in/youssef-drif-67927a239/"
+            target="_blank"
+            ><img
               class="iconlinkedin"
               src="../../assets/images/linkedin-icon.png"
               alt="Linkedin Icon"
