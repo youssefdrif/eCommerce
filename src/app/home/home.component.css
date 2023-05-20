@@ -251,3 +251,7 @@ footer {
 #vert:hover{
   content: url('../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Vert_02.jpg');
 }
+
+#black:hover{
+  content: url('../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Blanc_02.jpg');
+}

@@ -1,3 +1,4 @@
+// navbar.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  sidePanelOpen: boolean = false;
 
+  openSidePanel() {
+    this.sidePanelOpen = true;
+  }
+
+  onSidePanelClose() {
+    this.sidePanelOpen = false;
+  }
 }

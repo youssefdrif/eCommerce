@@ -9,11 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SigninComponent } from './signin/signin.component';
+import { SidePanelComponent } from './side-panel/side-panel.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signin', component: SigninComponent },
+  { path: 'sidepanel', component: SidePanelComponent },
 ];
 
 @NgModule({
@@ -23,6 +25,7 @@ const routes: Routes = [
     HomeComponent,
     LoginComponent,
     SigninComponent,
+    SidePanelComponent,
   ],
   imports: [
     BrowserModule,

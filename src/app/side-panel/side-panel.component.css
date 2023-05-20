@@ -1,0 +1,35 @@
+/* side-panel.component.css */
+
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Off-screen position */
+    width: 300px;
+    height: 100vh;
+    background-color: rgb(231, 231, 231);
+    transition: right 0.3s ease;
+    z-index: 999;
+  }  
+  
+  .side-panel.open {
+    right: 0; /* Visible position */
+  }
+  
+  .side-panel-content {
+    padding: 8px;
+  }
+  
+  .close-button {
+    text-align: right;
+  }
+  
+  .close-button button {
+    background: none;
+    font-size: 1.5rem;
+  }
+  .close-button-span{
+    cursor: pointer;
+    margin: 16px;
+  }
+  
+  
