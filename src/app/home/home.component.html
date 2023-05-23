@@ -50,42 +50,13 @@
             </div>
           </div>
           <div class="imgState">
-            <div class="imgMargin">
+            <div class="imgMargin" *ngFor="let ballon of ballons; index as i">
               <button class="blue-button">
                 <img
-                  id="black"
+                  (mouseover)="mouseOver(i)"
+                  (mouseout)="mouseOut(i)"
                   class="imgbluebutton"
-                  src="../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Blanc_01.jpg"
-                  alt="buttonpng"
-                />
-              </button>
-            </div>
-            <div class="imgMargin">
-              <button class="blue-button">
-                <img
-                  id="blue"
-                  class="imgbluebutton"
-                  src="../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Bleu_01.jpg"
-                  alt="buttonpng"
-                />
-              </button>
-            </div>
-            <div class="imgMargin">
-              <button class="blue-button">
-                <img
-                  id="rose"
-                  class="imgbluebutton"
-                  src="../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Rose_01.jpg"
-                  alt="buttonpng"
-                />
-              </button>
-            </div>
-            <div class="imgMargin">
-              <button class="blue-button">
-                <img
-                  id="vert"
-                  class="imgbluebutton"
-                  src="../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Vert_01.jpg"
+                  [src]="ballon"
                   alt="buttonpng"
                 />
               </button>

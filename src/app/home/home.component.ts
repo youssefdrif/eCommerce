@@ -12,7 +12,17 @@ export class HomeComponent {
     '../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Blanc_03.jpg',
     '../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Blanc_04.jpg',
   ];
+
+  ballons = ['Blanc', 'Bleu', 'Rose', 'Vert'].map(c => (`../../assets/images/BallonTiroClub/Ballon_Tiro_Club_${c}_01.jpg`));
   currentIndex = 0;
+  
+  mouseOver(index: number) {
+    this.ballons[index] = this.ballons[index].replace('01', '02');
+  }
+
+  mouseOut(index: number) {
+    this.ballons[index] = this.ballons[index].replace('02', '01');
+  }
 
   get currentImage() {
     return this.images[this.currentIndex];
