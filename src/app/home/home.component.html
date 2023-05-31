@@ -8,13 +8,11 @@
     <main>
       <div class="gridContainer">
         <div class="product-description">
-          <div>
-            <h1 class="title">BALLON TIRO CLUB</h1>
-            <p class="price">12,75 €</p>
-            <p>Blanc / Noir</p>
-          </div>
-          <div>
-            <h2>Tailles</h2>
+          <h1 class="title">BALLON TIRO CLUB</h1>
+          <p class="description">Blanc / Noir</p>
+          <p class="price">12,75 €</p>
+          <div class="sizingcss">
+            <h2 class="titlesize">Tailles</h2>
             <button
               class="sizeTiroClub"
               (click)="onButtonClicked('3size')"
@@ -52,8 +50,15 @@
             </div>
           </div>
           <div class="imgState">
-            <div class="imgMargin" *ngFor="let ballon of ballons; index as i" [style.margin]="getMarginForIndex(i)">
-              <button class="blue-button" (click)="onButtonClicked((i + 3).toString())">
+            <div
+              class="imgMargin"
+              *ngFor="let ballon of ballons; index as i"
+              [style.margin]="getMarginForIndex(i)"
+            >
+              <button
+                class="blue-button"
+                (click)="onButtonClicked((i + 3).toString())"
+              >
                 <img
                   (mouseover)="mouseOver(i)"
                   (mouseout)="mouseOut(i)"
@@ -78,7 +83,11 @@
             </div>
             <div class="rightside">
               <p class="button-label">4.9</p>
-              <span *ngFor="let star of starsArray" class="star material-symbols-outlined">grade</span>
+              <span
+                *ngFor="let star of starsArray"
+                class="star material-symbols-outlined"
+                >grade</span
+              >
               <span
                 class="expand material-symbols-outlined"
                 [ngClass]="{ rotated: isRotated }"

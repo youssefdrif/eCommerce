@@ -32,4 +32,41 @@
     margin: 16px;
   }
   
+  .texte-panier{
+    text-align: center;
+    font-size: 24px;
+  }
   
+  .login-sidepanel{
+    background-color: #000;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px 14px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 16px 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .login-sidepanel:hover {
+    transform: scale(1.1);
+    background-color: #888;
+    color: #000;
+  }
+
+  .divContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .checkout-icon{
+    font-size: 48px;
+    margin-top: 16px;
+  }

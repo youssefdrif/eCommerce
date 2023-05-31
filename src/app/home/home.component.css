@@ -34,9 +34,9 @@ footer {
 
   .product-description { 
     grid-area: 1 / 2 / 2 / 3;
-    align-self: center;
     grid-template-rows: 1fr;
     margin: 32px;
+    align-self: center;
   }
   .addtocartButton{
     background-color: #000;
@@ -50,6 +50,13 @@ footer {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .addtocartButton:hover {
+    transform: scale(1.1);
+    background-color: #888;
+    color: #000;
   }
   
  .image-container {
@@ -109,6 +116,7 @@ footer {
   border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .sizeTiroClub:hover {
@@ -135,6 +143,19 @@ footer {
 .price{
   font-size: 32px;
   font-weight: bold;
+}
+
+.description{
+  margin-bottom: 16px;
+}
+
+.sizingcss{
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.titlesize{
+  margin-bottom: 8px;
 }
 
 .customer-reviews {
@@ -237,10 +258,12 @@ footer {
   height: 100px;
   border: solid 2px rgb(87, 86, 86);
   cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
 .imgbluebutton.selected {
   border-color: rgb(29, 114, 184);
+  opacity: 1;
 }
 
 

@@ -1,5 +1,6 @@
 // side-panel.component.ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-panel',
@@ -12,5 +13,10 @@ export class SidePanelComponent {
 
   closePanel() {
     this.closePanelEvent.emit();
+  }
+  constructor(private router: Router) { }
+
+  redirectToPage() {
+    this.router.navigateByUrl('/login');
   }
 }

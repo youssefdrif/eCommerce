@@ -11,10 +11,6 @@ export class HomeComponent {
   '../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Blanc_02.jpg',
   '../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Blanc_03.jpg',
   '../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Blanc_04.jpg',
-  '../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Bleu_01.jpg',
-  '../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Bleu_02.jpg',
-  '../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Bleu_03.jpg',
-  '../../assets/images/BallonTiroClub/Ballon_Tiro_Club_Bleu_04.jpg',
   ];
 
   imagesBlanc = [
