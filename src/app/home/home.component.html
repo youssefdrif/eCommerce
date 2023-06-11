@@ -7,121 +7,92 @@
   <body>
     <main>
       <div class="gridContainer">
-        <div class="product-description">
-          <h1 class="title">BALLON TIRO CLUB</h1>
-          <p class="description">Blanc / Noir</p>
-          <p class="price">12,75 €</p>
-          <div class="sizingcss">
-            <h2 class="titlesize">Tailles</h2>
-            <button
-              class="sizeTiroClub"
-              (click)="onButtonClicked('3size')"
-              [class.selectedButton]="selectedButton === '3size'"
-            >
-              3
-            </button>
-            <button
-              class="sizeTiroClub"
-              (click)="onButtonClicked('4size')"
-              [class.selectedButton]="selectedButton === '4size'"
-            >
-              4
-            </button>
-            <button
-              class="sizeTiroClub"
-              (click)="onButtonClicked('5size')"
-              [class.selectedButton]="selectedButton === '5size'"
-            >
-              5
-            </button>
+        <div class="SubContainer">
+          <div class="HeaderContainer">
+            <h1 class="H1">
+              Pédalez vers un avenir
+              <span class="green-word">durable</span> avec Vel'ec
+            </h1>
+            <p class="ParagraphHeader">
+              La fusion parfaite entre le vélo pratique et l'électrique
+              écologique. Explorez les rues avec facilité tout en réduisant
+              votre empreinte carbone. Bienvenue dans une nouvelle ère de
+              mobilité respectueuse de l'environnement !
+            </p>
           </div>
-          <button class="addtocartButton">Ajouter au panier</button>
+          <div class="Moteur">
+            <h2 class="h2Moteur">Moteur électrique puissant</h2>
+            <p class="watts">250W (EU)</p>
+          </div>
+          <div class="Vitesse">
+            <h2 class="h2Vitesse">Vitesse maximale</h2>
+            <p class="kmh">25km/h</p>
+          </div>
+          <div class="Autonomie">
+            <h2 class="h2Autonomie">Autonomie</h2>
+            <p class="km">60km</p>
+          </div>
+          <div class="Asterisque">
+            <p class="p-asterisque">
+              *Les vélos sont limités à 250W et 25 km/h en Europe pour respecter
+              la réglementation. L'accélérateur n'est disponible que sur la
+              version 750W.
+            </p>
+          </div>
+          <div>
+            <h2 class="prix-electrique">Un prix électrique !</h2>
+            <img src="../../assets/images/elec.png" class="Electrique" />
+          </div>
+          <div>
+            <div>
+              <p class="crossed-text">4011 EUR</p>
+              <p class="discount">-25%</p>
+            </div>
+            <p class="final-price">2975 EUR</p>
+            <button class="preorder-button">Précommander</button>
+          </div>
         </div>
-        <div class="product-features">
+        <div class="gridContainer2">
+          <img
+            class="velec-dx50"
+            src="../../assets/images/logo velec DX50.png"
+          />
           <div class="image-container">
-            <img [src]="currentImage" alt="My Image" />
-            <div class="button-container">
-              <button class="scroll-left" (click)="scrollLeft()">
-                &#8592;
-              </button>
-              <button class="scroll-right" (click)="scrollRight()">
-                &#8594;
-              </button>
-            </div>
-          </div>
-          <div class="imgState">
-            <div
-              class="imgMargin"
-              *ngFor="let ballon of ballons; index as i"
-              [style.margin]="getMarginForIndex(i)"
+            <img class="bike-image" src="../../assets/images/REDSET-B61.png" />
+            <svg
+              class="blob"
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <button
-                class="blue-button"
-                (click)="onButtonClicked((i + 3).toString())"
-              >
-                <img
-                  (mouseover)="mouseOver(i)"
-                  (mouseout)="mouseOut(i)"
-                  class="imgbluebutton"
-                  [src]="ballon"
-                  alt="buttonpng"
-                />
-              </button>
+              <path
+                fill="#4655DD"
+                d="M41.6,-43.3C57,-36.8,74.4,-26.5,80.4,-11.4C86.3,3.7,80.8,23.6,70.9,41.2C61,58.8,46.8,74.2,30.9,76.1C15,78.1,-2.6,66.7,-15.3,56C-28,45.3,-35.9,35.3,-46.6,23.6C-57.3,11.9,-70.8,-1.5,-70,-13.4C-69.1,-25.3,-54,-35.8,-39.9,-42.6C-25.9,-49.3,-12.9,-52.3,0.1,-52.4C13.2,-52.5,26.3,-49.8,41.6,-43.3Z"
+                transform="translate(100 100)"
+              />
+            </svg>
+          </div>
+          <h2 class="colorsH2">4 couleurs disponibles</h2>
+          <div class="colors">
+            <div>
+              <button class="circle-red-button"></button>
+              <p class="red-color">rouge vin</p>
+            </div>
+            <div>
+              <button class="circle-blue-button"></button>
+              <p class="blue-color">bleu satin</p>
+            </div>
+            <div>
+              <button class="circle-black-button"></button>
+              <p class="black-color">noir furtif</p>
+            </div>
+            <div>
+              <button class="circle-brown-button"></button>
+              <p class="brown-color">marron or</p>
             </div>
           </div>
         </div>
-      </div>
-      <div class="customer-reviews">
-        <button
-          class="test"
-          (click)="toggleParagraphs()"
-          (click)="toggleIcon()"
-        >
-          <div class="button-content">
-            <div class="leftside">
-              <p class="button-label">Avis (22)</p>
-            </div>
-            <div class="rightside">
-              <p class="button-label">4.9</p>
-              <span
-                *ngFor="let star of starsArray"
-                class="star material-symbols-outlined"
-                >grade</span
-              >
-              <span
-                class="expand material-symbols-outlined"
-                [ngClass]="{ rotated: isRotated }"
-              >
-                expand_more
-              </span>
-            </div>
-          </div>
-        </button>
-        <p *ngIf="showParagraph1">Paragraph 1</p>
-        <p *ngIf="showParagraph2">Paragraph 2</p>
+        <img />
       </div>
     </main>
-    <footer>
-      <div class="footer-container">
-        <div class="social-media-icons">
-          <a href="#" class="footertext">Pourquoi ce site?</a>
-          <a href="#" class="footertext">Me contacter</a>
-          <a
-            href="https://www.linkedin.com/in/youssef-drif-67927a239/"
-            target="_blank"
-            ><img
-              class="iconlinkedin"
-              src="../../assets/images/linkedin-icon.png"
-              alt="Linkedin Icon"
-          /></a>
-          <a href="https://github.com/youssefdrif" target="_blank">
-            <img
-              class="icongithub"
-              src="../../assets/images/github-icon.png"
-              alt="Github Icon"
-          /></a>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>

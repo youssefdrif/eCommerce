@@ -1,11 +1,12 @@
 .navbar-nav {
   list-style-type: none;
   display: flex;
-  justify-content: center;
-  align-items: center; 
+  align-items: center;
+  background-color: #000;
+  height: 96px;
 }
+
 .navbar {
-  margin-top: 16px;
   position: fixed;
   top: 0;
   left: 0;
@@ -13,39 +14,37 @@
   z-index: 100;
 }
 
-.nav-link{
+.nav-link {
   margin: 32px;
   font-size: 24px;
   text-decoration: none;
-  color: black;
-}
-
-.search-container {
-  position: relative;
-}
-
-.search-container input[type="text"] {
-  border: 2px solid black;
-  border-radius: 20px;
-  padding: 10px;
-  padding-left: 20px;
-}
-
-.search-container mat-icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  color: black;
-  z-index: 1;
+  color: #fff;
 }
 
 .material-symbols-outlined {
-  font-size: 32px;
+  font-size: 40px;
   margin-top: 8px;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' -25,
-  'opsz' 40
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' -25, 'opsz' 40;
+}
+
+.logo-velec {
+  width: 150px;
+  height: 52px;
+  margin: 8px;
+}
+
+.logo-item {
+  margin-right: auto;
+}
+
+.custom-button {
+  width: 166px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: #4655DD;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 48px;
 }

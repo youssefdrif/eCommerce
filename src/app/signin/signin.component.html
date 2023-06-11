@@ -9,7 +9,7 @@
         <h2>Bienvenue</h2>
         <form [formGroup]="signInForm" (ngSubmit)="onSignIn()">
         <div>
-            <label for="email" class="labeltext">Email:</label>
+            <label for="email" class="labeltext">Adresse mail:</label>
             <input type="email" id="email" formControlName="email" placeholder="Email..." required>
             <div *ngIf="signInForm.get('email')?.invalid && (signInForm.get('email')?.dirty || signInForm.get('email')?.touched)">
               <div *ngIf="signInForm.get('email')?.hasError('required')" class="errortext">L'adresse mail est requise</div>
@@ -18,13 +18,13 @@
           </div>
           
           <div>
-            <label for="password" class="labeltext">Password:</label>
+            <label for="password" class="labeltext">Mot de passe:</label>
             <input type="password" id="password" formControlName="password" placeholder="Mot de passe..." required>
             <div *ngIf="signInForm.get('password')?.invalid && (signInForm.get('password')?.dirty || signInForm.get('password')?.touched)">
               <div *ngIf="signInForm.get('password')?.hasError('required')" class="errortext">Le mot de passe est requis</div>
             </div>
           </div>
-          
+          <p class="login-account">Déjà un compte? <a href="/login">Se connecter</a></p>
           <button type="submit" [disabled]="signInForm.invalid">S'inscrire</button>
         </form>
       </div>

@@ -60,6 +60,6 @@
         color: red;
       }
 
-      .labeltext, .errortext{
+      .labeltext, .errortext,.login-account{
         font-size: 20px;
       }

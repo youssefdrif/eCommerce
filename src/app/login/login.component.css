@@ -30,6 +30,10 @@ main{
   margin-bottom: 5px;
 }
 
+.username, .password, .noaccount{
+  font-size: 20px;
+}
+
 .login-form input[type="text"],
 .login-form input[type="password"] {
   border: 2px solid black;

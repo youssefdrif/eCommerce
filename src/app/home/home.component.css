@@ -14,207 +14,19 @@ body {
     list-style: none;
   }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-
   .gridContainer {
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
-    grid-template-rows: 1fr;
-    grid-row-gap: 0px;
-  }
-    
-  .product-features { 
-    grid-area: 1 / 1 / 2 / 2; 
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 32px;
+      grid-row-gap: 0px;
   }
 
   .product-description { 
-    grid-area: 1 / 2 / 2 / 3;
     grid-template-rows: 1fr;
     margin: 32px;
     align-self: center;
   }
-  .addtocartButton{
-    background-color: #000;
-    border-radius: 20px;
-    border: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 12px 14px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .addtocartButton:hover {
-    transform: scale(1.1);
-    background-color: #888;
-    color: #000;
-  }
-  
- .image-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 512px;
-  height: 512px;
-  margin: 0 auto;
-  white-space: nowrap;
-}
-
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.button-container {
-  position: absolute;
-  top: 50%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 50px;
-  transform: translateY(-50%);
-}
-
-.scroll-left,
-.scroll-right {
-  background-color: rgba(0, 0, 0, 0.3);
-  color: #fff;
-  border: none;
-  outline: none;
-  font-size: 2rem;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.scroll-left {
-  margin-left: 20px;
-}
-
-.scroll-right {
-  margin-right: 20px;
-}
-
-.sizeTiroClub {
-  background-color: transparent;
-  border: 2px solid #000;
-  color: #000;
-  font-weight: bold;
-  margin: 4px;
-  padding: 10px 15px;
-  border-radius: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.sizeTiroClub:hover {
-  background-color: black;
-  border: 2px solid black;
-  color: #fff;
-  font-weight: bold;
-  margin: 4px;
-  padding: 10px 15px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.selectedButton {
-  background-color: black;
-  color: white;
-  border: 2px solid black;
-}
-
-.title{
-  margin-bottom: 8px;
-}
-
-.price{
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.description{
-  margin-bottom: 16px;
-}
-
-.sizingcss{
-  margin-bottom: 16px;
-  margin-top: 32px;
-}
-
-.titlesize{
-  margin-bottom: 8px;
-}
-
-.customer-reviews {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  padding: 12px;
-  margin-top: 12px;
-  max-width: 500px;
-}
-
-.customer-reviews button {
-  background-color: transparent;
-  border: none;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.test {
-  width: 300px;
-  background-color: #ccc;
-  border: none;
-  padding: 10px;
-}
-
-.button-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.button-label { 
-  font-weight: bold; 
-  margin-left: 8px; 
-  font-size: 20px; 
-}
-
-.rightside {
-  display: flex;
-  align-items: center;
-}
-
-.leftside {
-  margin-right: auto;
-}
-
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
-}
-
-.rotated {
-  transform: rotate(180deg);
-}
 
 .iconlinkedin, .icongithub{
   width: 32px;
@@ -228,7 +40,6 @@ footer {
   align-items: center;
 }
 
-
 .footertext{
   margin: 8px;
 }
@@ -237,41 +48,169 @@ footer {
   background-color: rgb(231, 231, 231);
 }
 
-.blue-button{
-  width: 100px;
-  height: 100px;
-  border: 0;
+.H1{
+  font-weight: 800;
 }
 
-.imgbluebutton{
-  width: 100px;
-  height: 100px;
-  border: solid 2px rgb(87, 86, 86);
+.green-word{
+  color: #3A8950;
+}
+
+.ParagraphHeader{
+  font-size: 24px;
+}
+
+.h2Moteur, .h2Vitesse, .h2Autonomie{
+  font-weight: 600;
+}
+
+.watts, .kmh, .km{
+  font-size: 24px;
+  font-weight: 800;
+  color: #4655DD;
+}
+
+.p-asterisque{
+  font-size: 20px;
+}
+
+.prix-electrique{
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.Electrique{
+  width: 130px;
+  height: 135px;
+}
+
+.crossed-text {
+  text-decoration: line-through;
+  color: #FF4F4F;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.discount{
+  background-color: black;
+  color: white;
+  width: 56px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.preorder-button{
+  height: 48px;
+  border-radius: 8px;
+  background-color: #4655DD;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 8px;
+}
+
+.final-price{
+  font-weight: 800;
+  font-size: 32px;
+}
+
+.velec-dx50{
+  width: 368px;
+  height: 210px;
+  transform: rotate(10.35deg);
+}
+
+.gridContainer2{
+  display: grid;
+  justify-content: center;
+  align-self: center;
+  justify-items: center;
+}
+
+.image-container {
+  position: relative;
+}
+
+.bike-image{
+  width: 665px;
+  height: 400px;
+  position: relative;
+  z-index: 2; /* Increased z-index value */
+  transform: rotateY(180deg);
+  right: 32px;
+  bottom: 32px;
+}
+
+.blob {
+  position: absolute;
+  width: 514px;
+  height: 483px;  
+  bottom: 25px;
+  left: 50px;
+  z-index: 1;
+}
+
+.circle-red-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #952D39;
+  border: none;
   cursor: pointer;
 }
-.imgbluebutton:hover{
-  border: solid 2px rgb(29, 114, 184);
-}
 
-.imgbluebutton {
-  width: 100px;
-  height: 100px;
-  border: solid 2px rgb(87, 86, 86);
+.circle-blue-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #607EAF;
+  border: none;
   cursor: pointer;
-  transition: opacity 0.3s ease;
 }
 
-.imgbluebutton.selected {
-  border-color: rgb(29, 114, 184);
-  opacity: 1;
+.circle-black-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #1B1C1C;
+  border: none;
+  cursor: pointer;
 }
 
+.circle-brown-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #A1674B;
+  border: none;
+  cursor: pointer;
+}
 
-.imgState{
+.colorsH2{
+  font-weight: 800;
+  font-size: 32px;
+}
+
+.colors{
   display: flex;
-  margin-top: 32px;
+  justify-content: space-between;
+  gap: 56px;
+  margin-top: 24px;
 }
 
-.star {
-  color: #4CAF50;
+.colors > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Added property */
+}
+
+.red-color, .blue-color, .black-color, .brown-color{
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 8px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
