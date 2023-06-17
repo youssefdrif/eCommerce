@@ -5,29 +5,34 @@
   </head>
   <body>
     <main>
-      <div class="signin-form">
-        <h2>Bienvenue</h2>
-        <form [formGroup]="signInForm" (ngSubmit)="onSignIn()">
-        <div>
-            <label for="email" class="labeltext">Adresse mail:</label>
-            <input type="email" id="email" formControlName="email" placeholder="Email..." required>
-            <div *ngIf="signInForm.get('email')?.invalid && (signInForm.get('email')?.dirty || signInForm.get('email')?.touched)">
-              <div *ngIf="signInForm.get('email')?.hasError('required')" class="errortext">L'adresse mail est requise</div>
-              <div *ngIf="signInForm.get('email')?.hasError('email')" class="errortext">Veuillez rentrer une adresse mail valide</div>
-            </div>
+      <form [formGroup]="signInForm" class="formSignIn" (ngSubmit)="signIn()">
+        <input type="email" class="signin-form" formControlName="email" placeholder="Email" required>
+        <input type="password" class="signin-form" formControlName="password" placeholder="Password" required>
+        <button type="submit" class="signin-form-button">Sign In</button>
+      </form>        
+      <ng-container *ngIf="user$ | async as user">
+        <ng-container *ngIf="(user.user !== null); else NotSignedIn">
+          <div class="HelloProfile">
+            <ng-container *ngIf="user?.user?.photoURL; else NoProfilePicture">
+              <img class="profile-picture" [src]="user.user.photoURL" alt="Profile Picture" />
+            </ng-container>
+            <ng-template #NoProfilePicture>
+              <div class="profile-placeholder">
+                <span class="profile-initial">{{ getInitial(user?.user?.displayName) }}</span>
+              </div>
+            </ng-template>
+            <p class="paragraphSignedIn" *ngIf="user?.user?.displayName">Bonjour {{ user.user.displayName }}</p>
           </div>
-          
-          <div>
-            <label for="password" class="labeltext">Mot de passe:</label>
-            <input type="password" id="password" formControlName="password" placeholder="Mot de passe..." required>
-            <div *ngIf="signInForm.get('password')?.invalid && (signInForm.get('password')?.dirty || signInForm.get('password')?.touched)">
-              <div *ngIf="signInForm.get('password')?.hasError('required')" class="errortext">Le mot de passe est requis</div>
-            </div>
-          </div>
-          <p class="login-account">Déjà un compte? <a href="/login">Se connecter</a></p>
-          <button type="submit" [disabled]="signInForm.invalid">S'inscrire</button>
-        </form>
-      </div>
+          <button class="GoogleSignedOut" (click)="onSignOutClick()">
+            Se déconnecter
+          </button>
+        </ng-container>
+      </ng-container>
+      <ng-template #NotSignedIn>
+        <button class="GoogleSign" (click)="onSignInClick()">
+          S'inscrire avec Google
+        </button>
+      </ng-template>
     </main>
   </body>
 </html>
