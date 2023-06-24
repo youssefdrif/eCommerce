@@ -100,6 +100,12 @@
         font-weight: bold;
       }
 
+      .username, .password, .noaccount{
+        font-size: 20px;
+        margin: 8px;
+        justify-self: center;
+      }
+
       .signin-form-button[type="submit"]:hover {
         background-color: #3e8e41;
       }

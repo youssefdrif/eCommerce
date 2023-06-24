@@ -6,9 +6,11 @@
   <body>
     <main>
       <form [formGroup]="signInForm" class="formSignIn" (ngSubmit)="signIn()">
-        <input type="email" class="signin-form" formControlName="email" placeholder="Email" required>
-        <input type="password" class="signin-form" formControlName="password" placeholder="Password" required>
-        <button type="submit" class="signin-form-button">Sign In</button>
+        <label for="username" class="username">Adresse mail:</label>
+        <input type="email" class="signin-form" formControlName="email" placeholder="Email..." required>
+        <label for="password" class="password">Mot de passe:</label>
+        <input type="password" class="signin-form" formControlName="password" placeholder="Mot de passe..." required>
+        <button type="submit" class="signin-form-button">S'inscrire</button>
       </form>        
       <ng-container *ngIf="user$ | async as user">
         <ng-container *ngIf="(user.user !== null); else NotSignedIn">
