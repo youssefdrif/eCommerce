@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { environment } from '../../environments/environment';
 import firebase from 'firebase/compat/app';
-import { map } from 'rxjs/operators'; 
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signin',
@@ -14,11 +14,12 @@ import { map } from 'rxjs/operators';
 })
 export class SigninComponent implements OnInit {
   signInForm: FormGroup;
-  
+  showForm = true; // Add this variable to track the form group visibility
+
   user$ = this.angularAuth.authState.pipe(
     map(user => ({ user }))
   );
-    
+
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private angularAuth: AngularFireAuth) {
     firebase.initializeApp(environment.firebaseConfig);
     this.signInForm = this.formBuilder.group({
@@ -26,7 +27,7 @@ export class SigninComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
-    
+
   getInitial(displayName: string | null | undefined): string {
     if (displayName) {
       const initials = displayName
@@ -37,10 +38,11 @@ export class SigninComponent implements OnInit {
     }
     return '';
   }
-    
+
   onSignInClick() {
     this.angularAuth.signInWithPopup(new GoogleAuthProvider()).then(() => {
       console.log('Successfully signed in!');
+      this.showForm = false; // Hide the form when the button is clicked
     }).catch((error) => {
       console.log(error);
     });
@@ -48,12 +50,13 @@ export class SigninComponent implements OnInit {
 
   onSignOutClick() {
     this.angularAuth.signOut();
+    this.showForm = true; // Show the form again when signing out
   }
 
   signIn() {
     const { email, password } = this.signInForm.value;
     console.log('Email:', email); // Check the captured email in the console
-  
+
     this.angularAuth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // Sign-in successful
@@ -63,12 +66,12 @@ export class SigninComponent implements OnInit {
         // Handle sign-in error
         console.log(error);
       });
-  }  
-  
+  }
+
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
-  }  
+  }
 }
