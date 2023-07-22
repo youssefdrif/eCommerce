@@ -50,16 +50,16 @@ export class SigninComponent implements OnInit {
 
   onSignInClick() {
     this.angularAuth.signInWithPopup(new GoogleAuthProvider()).then((result) => {
-      console.log('Successfully signed in!', result.user);
+      console.log('Vous vous êtes inscrit avec succès', result.user);
 
       this.signedInUser = result.user;
       this.showForm = false;
 
-      this.presentAlert('Success', 'Successfully signed in!', 'success');
+      this.presentAlert("Succès", 'Vous vous êtes inscrit avec succès', 'success');
     }).catch((error) => {
       console.log(error);
 
-      this.presentAlert('Error', 'An error occurred while signing in.', 'danger');
+      this.presentAlert('Erreur', "Une erreur est survenue lors de l'inscription", 'danger');
     });
   }
 
@@ -77,7 +77,7 @@ export class SigninComponent implements OnInit {
 
     this.angularAuth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        console.log('Successfully signed in!', userCredential.user);
+        console.log('Vous vous êtes inscrit avec succès', userCredential.user);
 
         this.signedInUser = {
           displayName: `${name} ${surname}`,
