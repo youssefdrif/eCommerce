@@ -86,12 +86,12 @@ export class SigninComponent implements OnInit {
 
         this.showForm = false;
 
-        this.presentAlert('Success', 'Successfully signed in!', 'success');
+        this.presentAlert("Succès", 'Vous vous êtes inscrit avec succès', 'success');
       })
       .catch((error) => {
         console.log(error);
 
-        this.presentAlert('Error', 'An error occurred while signing in.', 'danger');
+        this.presentAlert('Erreur', "Une erreur est survenue lors de l'inscription", 'danger');
       });
   }
 

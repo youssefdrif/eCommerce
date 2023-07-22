@@ -33,10 +33,24 @@
     color: white;
   }
   
-  .custom-alert .alert-button-inner {
-    color: white;
-  }
+ .custom-alert .alert-button-group .alert-button-inner {
+  background-color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
   
   .custom-alert .alert-button-inner:hover {
     cursor: pointer;
+  }
+
+  .custom-alert .alert-title {
+    color: white;
   }
