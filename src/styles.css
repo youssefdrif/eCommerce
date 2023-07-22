@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&display=swap');
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+@import "../src/styles.css";
 *, ::before, ::after {
     margin: 0;
     padding: 0;
@@ -11,4 +12,31 @@
   html, body, #root, .App {
     font-family: 'Bebas Neue', sans-serif;
     font-family: 'Inter', sans-serif;
+  }
+
+  .custom-alert {
+    --ion-border-radius: 10px;
+    --ion-padding: 20px;
+  }
+  
+  .alert-color-success {
+    --ion-background-color: green;
+    --ion-color: white;
+  }
+  
+  .alert-color-danger {
+    --ion-background-color: red;
+    --ion-color: white;
+  }
+  
+  .custom-alert .alert-message {
+    color: white;
+  }
+  
+  .custom-alert .alert-button-inner {
+    color: white;
+  }
+  
+  .custom-alert .alert-button-inner:hover {
+    cursor: pointer;
   }

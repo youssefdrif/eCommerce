@@ -8,37 +8,87 @@
       <ng-container *ngIf="showForm">
         <form [formGroup]="signInForm" class="formSignIn" (ngSubmit)="signIn()">
           <label for="username" class="username">Adresse mail:</label>
-          <input type="email" class="signin-form" formControlName="email" placeholder="Email..." required>
+          <input
+            type="email"
+            class="signin-form"
+            formControlName="email"
+            placeholder="Email..."
+            required
+          />
+
+          <label for="name" class="username">Prénom:</label>
+          <input
+            type="text"
+            class="signin-form"
+            formControlName="name"
+            placeholder="Prénom..."
+            required
+          />
+
+          <label for="surname" class="username">Nom:</label>
+          <input
+            type="text"
+            class="signin-form"
+            formControlName="surname"
+            placeholder="Nom..."
+            required
+          />
+
           <label for="password" class="password">Mot de passe:</label>
-          <input type="password" class="signin-form" formControlName="password" placeholder="Mot de passe..." required>
+          <input
+            type="password"
+            class="signin-form"
+            formControlName="password"
+            placeholder="Mot de passe..."
+            required
+          />
           <button type="submit" class="signin-form-button">S'inscrire</button>
         </form>
-      </ng-container>
 
-      <ng-container *ngIf="user$ | async as user">
-        <ng-container *ngIf="(user.user !== null); else NotSignedIn">
-          <div class="HelloProfile">
-            <ng-container *ngIf="user?.user?.photoURL; else NoProfilePicture">
-              <img class="profile-picture" [src]="user.user.photoURL" alt="Profile Picture" />
-            </ng-container>
-            <ng-template #NoProfilePicture>
-              <div class="profile-placeholder">
-                <span class="profile-initial">{{ getInitial(user?.user?.displayName) }}</span>
-              </div>
-            </ng-template>
-            <p class="paragraphSignedIn" *ngIf="user?.user?.displayName">Bonjour {{ user.user.displayName }}</p>
-          </div>
-          <button class="GoogleSignedOut" (click)="onSignOutClick()">
-            Se déconnecter
-          </button>
-        </ng-container>
-      </ng-container>
-
-      <ng-template #NotSignedIn>
         <button class="GoogleSign" (click)="onSignInClick()">
           S'inscrire avec Google
         </button>
-      </ng-template>
+      </ng-container>
+
+      <ng-container *ngIf="user$ | async as user">
+        <ng-container *ngIf="user.user; else NotSignedIn">
+          <div class="HelloProfile">
+            <ng-container *ngIf="user?.user?.photoURL; else NoProfilePicture">
+              <img
+                class="profile-picture"
+                [src]="user.user.photoURL"
+                alt="Profile Picture"
+              />
+            </ng-container>
+            <ng-template #NoProfilePicture>
+              <div class="profile-placeholder">
+                <span class="profile-initial">{{
+                  getInitial(user?.user?.displayName)
+                }}</span>
+              </div>
+            </ng-template>
+            <p class="paragraphSignedIn" *ngIf="signedInUser">
+              {{ signedInUser.displayName }}
+            </p>
+            <button
+              class="GoogleSignedOut"
+              (click)="onSignOutClick()"
+              *ngIf="user.user.providerData[0]?.providerId === 'google.com'"
+            >
+              Se déconnecter
+            </button>
+          </div>
+        </ng-container>
+        <ng-template #NotSignedIn>
+          <button
+            class="GoogleSign"
+            (click)="onSignInClick()"
+            *ngIf="!showForm"
+          >
+            S'inscrire avec Google
+          </button>
+        </ng-template>
+      </ng-container>
     </main>
   </body>
 </html>

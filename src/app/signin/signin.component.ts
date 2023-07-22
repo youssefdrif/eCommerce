@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { environment } from '../../environments/environment';
 import firebase from 'firebase/compat/app';
 import { map } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signin',
@@ -14,17 +15,25 @@ import { map } from 'rxjs/operators';
 })
 export class SigninComponent implements OnInit {
   signInForm: FormGroup;
-  showForm = true; // Add this variable to track the form group visibility
+  showForm = true;
+  signedInUser: any = null;
 
   user$ = this.angularAuth.authState.pipe(
     map(user => ({ user }))
   );
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private angularAuth: AngularFireAuth) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private angularAuth: AngularFireAuth,
+    private alertController: AlertController
+  ) {
     firebase.initializeApp(environment.firebaseConfig);
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
     });
   }
 
@@ -40,38 +49,76 @@ export class SigninComponent implements OnInit {
   }
 
   onSignInClick() {
-    this.angularAuth.signInWithPopup(new GoogleAuthProvider()).then(() => {
-      console.log('Successfully signed in!');
-      this.showForm = false; // Hide the form when the button is clicked
+    this.angularAuth.signInWithPopup(new GoogleAuthProvider()).then((result) => {
+      console.log('Successfully signed in!', result.user);
+
+      this.signedInUser = result.user;
+      this.showForm = false;
+
+      this.presentAlert('Success', 'Successfully signed in!', 'success');
+    }).catch((error) => {
+      console.log(error);
+
+      this.presentAlert('Error', 'An error occurred while signing in.', 'danger');
+    });
+  }
+
+  onSignOutClick() {
+    this.angularAuth.signOut().then(() => {
+      this.signedInUser = null;
+      this.showForm = true;
     }).catch((error) => {
       console.log(error);
     });
   }
 
-  onSignOutClick() {
-    this.angularAuth.signOut();
-    this.showForm = true; // Show the form again when signing out
-  }
-
   signIn() {
-    const { email, password } = this.signInForm.value;
-    console.log('Email:', email); // Check the captured email in the console
+    const { email, password, name, surname } = this.signInForm.value;
 
     this.angularAuth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        // Sign-in successful
         console.log('Successfully signed in!', userCredential.user);
+
+        this.signedInUser = {
+          displayName: `${name} ${surname}`,
+          email: userCredential.user?.email,
+        };
+
+        this.showForm = false;
+
+        this.presentAlert('Success', 'Successfully signed in!', 'success');
       })
       .catch((error) => {
-        // Handle sign-in error
         console.log(error);
+
+        this.presentAlert('Error', 'An error occurred while signing in.', 'danger');
       });
   }
 
-  ngOnInit() {
-    this.signInForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+  async presentAlert(header: string, message: string, color: string) {
+    const alert = await this.alertController.create({
+      header: header,
+      message: message,
+      buttons: [{
+        text: 'OK',
+        cssClass: 'custom-alert-button'
+      }],
+      cssClass: 'custom-alert',
+      backdropDismiss: false,
+      translucent: true
     });
+  
+    const alertElement = await alert;
+    if (alertElement) {
+      const colorClass = `alert-color-${color}`;
+      alertElement.classList.add(colorClass);
+    }
+  
+    await alert.present();
+  }  
+  
+
+  ngOnInit() {
+    // No need to initialize the form again here, as it's already done in the constructor
   }
 }

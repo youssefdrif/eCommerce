@@ -14,6 +14,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth"
 import { environment } from 'src/environments/environment';
+import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,6 +44,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    IonicModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
