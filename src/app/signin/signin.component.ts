@@ -49,27 +49,49 @@ export class SigninComponent implements OnInit {
   }
 
   onSignInClick() {
-    this.angularAuth.signInWithPopup(new GoogleAuthProvider()).then((result) => {
-      console.log('Vous vous êtes inscrit avec succès', result.user);
-
-      this.signedInUser = result.user;
-      this.showForm = false;
-
-      this.presentAlert("Succès", 'Vous vous êtes inscrit avec succès', 'success');
-    }).catch((error) => {
-      console.log(error);
-
-      this.presentAlert('Erreur', "Une erreur est survenue lors de l'inscription", 'danger');
-    });
-  }
+    this.angularAuth
+      .signInWithPopup(new GoogleAuthProvider())
+      .then((result) => {
+        console.log('Vous vous êtes inscrit avec succès', result.user);
+  
+        this.signedInUser = result.user;
+        this.showForm = false;
+  
+        this.presentAlert('Succès', 'Vous vous êtes inscrit avec succès', 'success');
+      })
+      .catch((error) => {
+        console.log(error);
+  
+        this.presentAlert(
+          'Erreur',
+          "Une erreur est survenue lors de l'inscription",
+          'danger'
+        );
+      });
+  }  
 
   onSignOutClick() {
-    this.angularAuth.signOut().then(() => {
-      this.signedInUser = null;
-      this.showForm = true;
-    }).catch((error) => {
-      console.log(error);
-    });
+    this.angularAuth
+      .signOut()
+      .then(() => {
+        this.signedInUser = null;
+        this.showForm = true;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  onEmailLogoutClick() {
+    this.angularAuth
+      .signOut()
+      .then(() => {
+        this.signedInUser = null;
+        this.showForm = true;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   signIn() {
@@ -119,6 +141,15 @@ export class SigninComponent implements OnInit {
   
 
   ngOnInit() {
-    // No need to initialize the form again here, as it's already done in the constructor
+    this.angularAuth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is authenticated, set the signedInUser and hide the form
+        this.signedInUser = user;
+        this.showForm = false;
+      } else {
+        // User is not authenticated, show the form
+        this.showForm = true;
+      }
+    });
   }
 }

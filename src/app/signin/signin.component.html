@@ -54,11 +54,12 @@
       <ng-container *ngIf="user.user; else NotSignedIn">
         <div class="HelloProfile">
           <div class="profile-info">
+          <div class="profile-info2">
             <ng-container *ngIf="user?.user?.photoURL; else NoProfilePicture">
               <img
-                class="profile-picture"
-                [src]="user.user.photoURL"
-                alt="Profile Picture"
+              class="profile-picture"
+              [src]="user.user.photoURL"
+              alt="Profile Picture"
               />
             </ng-container>
             <ng-template #NoProfilePicture>
@@ -68,12 +69,30 @@
                 }}</span>
               </div>
             </ng-template>
-            <p class="paragraphSignedIn" *ngIf="signedInUser">
+            <p class="paragraphSignedInDisplayName" *ngIf="signedInUser">
               {{ signedInUser.displayName }}
             </p>
           </div>
+          <div class="mail">
+            <p>Adresse mail :</p>
+            <p class="paragraphSignedIn" *ngIf="signedInUser">
+              {{ signedInUser.email }}
+            </p>
+          </div>
+          <div class="verified">
+            <p>Votre adresse mail est-elle verifiée? :  </p>
+              <p class="paragraphSignedIn" *ngIf="signedInUser">
+                {{ signedInUser.emailVerified ? 'verifiée' : 'non-verifiée' }}
+              </p>
+          </div>
+          </div>
           <div *ngIf="user.user.providerData[0]?.providerId === 'google.com'">
             <button class="GoogleSignedOut" (click)="onSignOutClick()">
+              Se déconnecter
+            </button>
+          </div>
+          <div *ngIf="user.user.providerData[0]?.providerId === 'password'">
+            <button class="emailLogout" (click)="onEmailLogoutClick()">
               Se déconnecter
             </button>
           </div>
