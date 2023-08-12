@@ -48,3 +48,11 @@
   font-weight: 500;
   margin: 48px;
 }
+
+.profile-picture{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  outline: #fff solid 2px;
+  align-self: center;
+}

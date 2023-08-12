@@ -9,7 +9,7 @@
       <ng-container *ngIf="user$ | async as user">
         <li class="nav-item right-item">
           <a routerLink="/user-account" class="nav-link">
-            <img class="profile-picture" [src]="user.photoURL" alt="Profile Picture" />
+            <img class="profile-picture" [src]="user.photoURL" alt="Profile Picture" [style.margin-top.px]="user.isLoggedIn ? 0 : 8" />
           </a>
         </li>
       </ng-container>

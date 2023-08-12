@@ -5,7 +5,6 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { environment } from '../../environments/environment';
 import firebase from 'firebase/compat/app';
 import { map } from 'rxjs/operators';
-import { AuthService } from '../services/auth.service';
 import { AlertController } from '@ionic/angular';
 import { UserService } from '../user.service'; // Adjust the path accordingly
 
@@ -25,7 +24,6 @@ export class UserAccountComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
     private angularAuth: AngularFireAuth,
     private userService: UserService,
     private alertController: AlertController
