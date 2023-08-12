@@ -1,9 +1,7 @@
-/* side-panel.component.css */
-
 .side-panel {
     position: fixed;
     top: 0;
-    right: -300px; /* Off-screen position */
+    right: -300px;
     width: 300px;
     height: 100vh;
     background-color: rgb(231, 231, 231);
@@ -12,7 +10,7 @@
   }  
   
   .side-panel.open {
-    right: 0; /* Visible position */
+    right: 0;
   }
   
   .side-panel-content {

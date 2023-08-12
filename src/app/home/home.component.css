@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    padding-top: 96px; /* create the space between navbar and home body */
+    padding-top: 96px;
   }
 
   ul {
@@ -147,7 +147,7 @@ body {
   width: 665px;
   height: 400px;
   position: relative;
-  z-index: 2; /* Increased z-index value */
+  z-index: 2;
   transform: rotateY(180deg);
   right: 32px;
   bottom: 32px;
@@ -213,7 +213,7 @@ body {
 .colors > div {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Added property */
+  align-items: center;
 }
 
 .red-color, .blue-color, .black-color, .brown-color{

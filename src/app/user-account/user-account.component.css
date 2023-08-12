@@ -61,7 +61,6 @@ body {
   }
   
   .profile-info {
-    /* display: flex; */
     align-items: center;
   }
   
@@ -130,21 +129,18 @@ body {
     background-color: #3e8e41;
   }
   
-  /* Green success alert */
   .alert-color-success {
     --ion-background-color: green;
     --ion-color: white;
   }
-  
-  /* Red danger alert */
+
   .alert-color-danger {
     --ion-background-color: red;
     --ion-color: white;
   }
   
-  /* Custom class for the OK button */
   .custom-alert-button {
-    color: white; /* Set text color to white */
+    color: white;
   }
   
   
