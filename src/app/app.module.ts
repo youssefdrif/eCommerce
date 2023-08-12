@@ -17,6 +17,9 @@ import { environment } from 'src/environments/environment';
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { IonicModule } from '@ionic/angular';
+import { UserAccountComponent } from './user-account/user-account.component';
+import { AuthGuard } from './auth.guard';
+import { UserService } from './user.service'; // Adjust the path as needed
 
 
 const routes: Routes = [
@@ -24,6 +27,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'sidepanel', component: SidePanelComponent },
+  { path: 'user-account', component: UserAccountComponent, canActivate: [AuthGuard] }, // AuthGuard ensures user is logged in
+  { path: '**', redirectTo: '/home' }, // Fallback route
 ];
 
 @NgModule({
@@ -34,6 +39,7 @@ const routes: Routes = [
     LoginComponent,
     SigninComponent,
     SidePanelComponent,
+    UserAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [AuthGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

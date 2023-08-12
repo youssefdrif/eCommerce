@@ -1,0 +1,37 @@
+<main>
+    <ng-container *ngIf="user$ | async as user">
+      <div class="HelloProfile">
+        <div class="profile-info">
+          <div class="profile-info2">
+            <ng-container *ngIf="user?.user?.photoURL; else NoProfilePicture">
+              <img class="profile-picture" [src]="user.user?.photoURL || ''" alt="Profile Picture" />
+            </ng-container>
+            <ng-template #NoProfilePicture>
+              <div class="profile-placeholder">
+                <span class="profile-initial">{{ getInitial(user?.user?.displayName) }}</span>
+              </div>
+            </ng-template>
+            <p class="paragraphSignedInDisplayName" *ngIf="signedInUser">
+              {{ signedInUser.displayName }}
+            </p>
+          </div>
+          <div class="mail">
+            <p>Adresse mail :</p>
+            <p class="paragraphSignedIn" *ngIf="signedInUser">{{ signedInUser.email }}</p>
+          </div>
+          <div class="verified">
+            <p>Votre adresse mail est-elle verifiée? :</p>
+            <p class="paragraphSignedIn" *ngIf="signedInUser">
+              {{ signedInUser.emailVerified ? 'verifiée' : 'non-verifiée' }}
+            </p>
+          </div>
+        </div>
+        <div *ngIf="isGoogleProvider(user?.user)">
+          <button class="GoogleSignedOut" (click)="onSignOutClick()">Se déconnecter</button>
+        </div>
+        <div *ngIf="isPasswordProvider(user?.user)">
+          <button class="emailLogout" (click)="onEmailLogoutClick()">Se déconnecter</button>
+        </div>
+      </div>
+    </ng-container>
+  </main>  

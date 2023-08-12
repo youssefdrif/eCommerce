@@ -10,11 +10,11 @@ import { AlertController } from '@ionic/angular';
 import { UserService } from '../user.service'; // Adjust the path accordingly
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  selector: 'app-useraccount',
+  templateUrl: './user-account.component.html',
+  styleUrls: ['./user-account.component.css']
 })
-export class SigninComponent implements OnInit {
+export class UserAccountComponent implements OnInit {
   signInForm: FormGroup;
   showForm = true;
   signedInUser: any = null;
@@ -47,6 +47,15 @@ export class SigninComponent implements OnInit {
       }
     });
   }
+
+  isGoogleProvider(user: any): boolean {
+    return user?.providerData && user.providerData[0]?.providerId === 'google.com';
+  }
+  
+  isPasswordProvider(user: any): boolean {
+    return user?.providerData && user.providerData[0]?.providerId === 'password';
+  }
+  
 
   getInitial(displayName: string | null | undefined): string {
     if (displayName) {

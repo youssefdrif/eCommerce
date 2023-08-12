@@ -1,0 +1,163 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: auto;
+  }
+  
+  .errortext {
+    color: red;
+  }
+  
+  .formSignIn {
+    display: grid;
+  }
+  
+  .signin-form {
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    width: 300px;
+  }
+  
+  .labeltext,
+  .errortext,
+  .login-account {
+    font-size: 20px;
+  }
+  
+  .GoogleSign {
+    background-color: lightgray;
+    margin-top: 16px;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .GoogleSignedOut, .emailLogout {
+    background-color: lightgray;
+    margin-top: 16px;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .profile-info {
+    /* display: flex; */
+    align-items: center;
+  }
+  
+  .profile-info2{
+    display: flex;
+  }
+  
+  .profile-picture {
+    margin-right: 8px;
+    border-radius: 60px;
+    width: 50px;
+  }
+  
+  .profile-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .profile-initial {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .HelloProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .paragraphSignedIn {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .paragraphSignedInDisplayName {
+    font-weight: bold;
+    font-size: 20px;
+    place-self: center;
+  }
+  
+  .signin-form-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 16px;
+    font-weight: bold;
+  }
+  
+  .username,
+  .password,
+  .noaccount {
+    font-size: 20px;
+    margin: 8px;
+    justify-self: center;
+  }
+  
+  .signin-form-button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Green success alert */
+  .alert-color-success {
+    --ion-background-color: green;
+    --ion-color: white;
+  }
+  
+  /* Red danger alert */
+  .alert-color-danger {
+    --ion-background-color: red;
+    --ion-color: white;
+  }
+  
+  /* Custom class for the OK button */
+  .custom-alert-button {
+    color: white; /* Set text color to white */
+  }
+  
+  
+  .DisconnectButton {
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .mail, .verified{
+    margin: 24px;
+    margin-left: 0px;
+  }
