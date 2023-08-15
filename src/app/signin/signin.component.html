@@ -63,12 +63,10 @@
               />
             </ng-container>
             <ng-template #NoProfilePicture>
-              <div class="profile-placeholder">
-                <span class="profile-initial">{{
-                  getInitial(user?.user?.displayName)
-                }}</span>
+              <div class="profile-placeholder" [style.background-color]="generateRandomColor()">
+                <span class="profile-initial">{{ getInitial(user?.user?.displayName) || getInitialFromEmail(user?.user?.email) }}</span>
               </div>
-            </ng-template>
+            </ng-template>            
             <p class="paragraphSignedInDisplayName" *ngIf="signedInUser">
               {{ signedInUser.displayName }}
             </p>

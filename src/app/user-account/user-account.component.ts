@@ -6,7 +6,8 @@ import { environment } from '../../environments/environment';
 import firebase from 'firebase/compat/app';
 import { map } from 'rxjs/operators';
 import { AlertController } from '@ionic/angular';
-import { UserService } from '../user.service'; // Adjust the path accordingly
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-useraccount',
@@ -26,6 +27,7 @@ export class UserAccountComponent implements OnInit {
     private formBuilder: FormBuilder,
     private angularAuth: AngularFireAuth,
     private userService: UserService,
+    private router: Router,
     private alertController: AlertController
   ) {
     firebase.initializeApp(environment.firebaseConfig);
@@ -39,7 +41,7 @@ export class UserAccountComponent implements OnInit {
       if (user) {
         this.signedInUser = user;
         this.showForm = false;
-        this.userService.setUser(user); // Set user data in the service
+        this.userService.setUser(user);
       } else {
         this.showForm = true;
       }
@@ -95,6 +97,7 @@ export class UserAccountComponent implements OnInit {
       .then(() => {
         this.signedInUser = null;
         this.showForm = true;
+        this.router.navigate(['/signin']);
       })
       .catch((error) => {
         console.log(error);

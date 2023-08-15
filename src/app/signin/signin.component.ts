@@ -7,7 +7,8 @@ import firebase from 'firebase/compat/app';
 import { map } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { AlertController } from '@ionic/angular';
-import { UserService } from '../user.service'; // Adjust the path accordingly
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -28,6 +29,7 @@ export class SigninComponent implements OnInit {
     private authService: AuthService,
     private angularAuth: AngularFireAuth,
     private userService: UserService,
+    private router: Router,
     private alertController: AlertController
   ) {
     firebase.initializeApp(environment.firebaseConfig);
@@ -58,7 +60,22 @@ export class SigninComponent implements OnInit {
     }
     return '';
   }
+
+  generateRandomColor(): string {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
   
+  getInitialFromEmail(email: string | undefined | null): string {
+    if (email) {
+      return email.charAt(0).toUpperCase();
+    }
+    return '';
+  }  
 
   onSignInClick() {
     this.angularAuth
@@ -68,7 +85,7 @@ export class SigninComponent implements OnInit {
   
         this.signedInUser = result.user;
         this.showForm = false;
-  
+        this.router.navigate(['/user-account']);
         this.presentAlert('Succès', 'Vous vous êtes inscrit avec succès', 'success');
       })
       .catch((error) => {
