@@ -43,7 +43,7 @@ export class SigninComponent implements OnInit {
       if (user) {
         this.signedInUser = user;
         this.showForm = false;
-        this.userService.setUser(user); // Set user data in the service
+        this.userService.setUser(user);
       } else {
         this.showForm = true;
       }
@@ -59,15 +59,6 @@ export class SigninComponent implements OnInit {
       return initials.substring(0, 2);
     }
     return '';
-  }
-
-  generateRandomColor(): string {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
   }
   
   getInitialFromEmail(email: string | undefined | null): string {
@@ -136,6 +127,8 @@ export class SigninComponent implements OnInit {
         };
 
         this.showForm = false;
+        console.log('fkoekfe');
+        this.router.navigate(['/','user-account']);
 
         this.presentAlert("Succès", 'Vous vous êtes inscrit avec succès', 'success');
       })
@@ -164,19 +157,15 @@ export class SigninComponent implements OnInit {
       const colorClass = `alert-color-${color}`;
       alertElement.classList.add(colorClass);
     }
-  
     await alert.present();
-  }  
-  
+  }
 
   ngOnInit() {
     this.angularAuth.onAuthStateChanged((user) => {
       if (user) {
-        // User is authenticated, set the signedInUser and hide the form
         this.signedInUser = user;
         this.showForm = false;
       } else {
-        // User is not authenticated, show the form
         this.showForm = true;
       }
     });

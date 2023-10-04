@@ -20,9 +20,10 @@
             <p class="paragraphSignedIn" *ngIf="signedInUser">{{ signedInUser.email }}</p>
           </div>
           <div class="verified">
-            <p>Votre adresse mail est-elle verifiée? :</p>
+            <p>Votre adresse mail est vérifiée:</p>
             <p class="paragraphSignedIn" *ngIf="signedInUser">
-              {{ signedInUser.emailVerified ? 'verifiée' : 'non-verifiée' }}
+              {{ signedInUser.emailVerified ? 'verifiée' : 'Non verifiée' }}
+              <button *ngIf="signedInUser && !signedInUser.emailVerified" (click)="sendVerificationEmail()">Verifiez votre adresse mail</button>
             </p>
           </div>
         </div>

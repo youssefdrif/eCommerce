@@ -9,6 +9,7 @@
       <form [formGroup]="signInForm" class="formSignIn" (ngSubmit)="signIn()">
         <label for="username" class="username">Adresse mail:</label>
         <input
+          id="username"
           type="email"
           class="signin-form"
           formControlName="email"
@@ -19,6 +20,7 @@
         <label for="name" class="username">Prénom:</label>
         <input
           type="text"
+          id="name"
           class="signin-form"
           formControlName="name"
           placeholder="Prénom..."
@@ -28,6 +30,7 @@
         <label for="surname" class="username">Nom:</label>
         <input
           type="text"
+          id="surname"
           class="signin-form"
           formControlName="surname"
           placeholder="Nom..."
@@ -37,6 +40,7 @@
         <label for="password" class="password">Mot de passe:</label>
         <input
           type="password"
+          id="password"
           class="signin-form"
           formControlName="password"
           placeholder="Mot de passe..."
@@ -63,7 +67,7 @@
               />
             </ng-container>
             <ng-template #NoProfilePicture>
-              <div class="profile-placeholder" [style.background-color]="generateRandomColor()">
+              <div class="profile-placeholder">
                 <span class="profile-initial">{{ getInitial(user?.user?.displayName) || getInitialFromEmail(user?.user?.email) }}</span>
               </div>
             </ng-template>            

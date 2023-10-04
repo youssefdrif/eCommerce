@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Observable } from 'rxjs'; // Make sure you import Observable
+import { Observable } from 'rxjs';
 
-import { UserService } from '../user.service'; // Adjust the path accordingly
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +12,7 @@ import { UserService } from '../user.service'; // Adjust the path accordingly
 export class NavbarComponent implements OnInit {
   sidePanelOpen: boolean = false;
   user$: Observable<any>;
-  user: any; // Declare the user property
+  user: any;
 
   constructor(private angularAuth: AngularFireAuth, private userService: UserService) {
     this.user$ = this.angularAuth.authState;

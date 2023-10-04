@@ -30,7 +30,6 @@
 .logo-velec {
   width: 150px;
   height: 52px;
-  margin: 8px;
 }
 
 .logo-item {
@@ -46,7 +45,7 @@
   color: #fff;
   font-size: 24px;
   font-weight: 500;
-  margin: 48px;
+  margin-right: 32px;
 }
 
 .profile-picture{

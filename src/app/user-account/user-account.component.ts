@@ -9,6 +9,12 @@ import { AlertController } from '@ionic/angular';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
+interface FirebaseError {
+  code: string;
+  message: string;
+  // Add other properties based on the Firebase error object
+}
+
 @Component({
   selector: 'app-useraccount',
   templateUrl: './user-account.component.html',
@@ -128,7 +134,7 @@ export class UserAccountComponent implements OnInit {
           email: userCredential.user?.email,
         };
 
-        this.showForm = false;
+        // this.showForm = false;
 
         this.presentAlert("Succès", 'Vous vous êtes inscrit avec succès', 'success');
       })
@@ -159,17 +165,30 @@ export class UserAccountComponent implements OnInit {
     }
   
     await alert.present();
-  }  
+  }
   
+
+  sendVerificationEmail() {
+  if (this.signedInUser) {
+    this.signedInUser
+      .sendEmailVerification()
+      .then(() => {
+        this.presentAlert('Success', 'Verification email sent. Please check your inbox.', 'success');
+      })
+      .catch((error: FirebaseError) => {
+        console.log('Error sending verification email', error);
+        this.presentAlert('Error', 'Failed to send verification email. Please try again.', 'danger');
+      });
+  }
+}
 
   ngOnInit() {
     this.angularAuth.onAuthStateChanged((user) => {
       if (user) {
-        // User is authenticated, set the signedInUser and hide the form
+        
         this.signedInUser = user;
         this.showForm = false;
       } else {
-        // User is not authenticated, show the form
         this.showForm = true;
       }
     });
